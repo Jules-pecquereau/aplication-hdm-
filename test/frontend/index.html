@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="frnpm install vite @vitejs/plugin-react">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devs Test HDM</title>
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+<div id="root"></div>
+<script> const global = globalThis; </script>
+<script type="module" src="./src/main.tsx">
+    async function fetchTasks() {
+    try {
+      const response = await fetch('/tasks'); // Assurez-vous que le chemin est correct
+      const tasks = await response.json();
+
+      // Afficher les tâches dans le DOM
+      const root = document.getElementById('root');
+      root.innerHTML = '<h2>Liste des tâches</h2>';
+      const ul = document.createElement('ul');
+      tasks.forEach(task => {
+        const li = document.createElement('li');
+        li.textContent = `Tâche : ${task.name}`;
+        ul.appendChild(li);
+      });
+      root.appendChild(ul);
+    } catch (error) {
+      console.error('Erreur lors de la récupération des tâches :', error);
+    }
+  }
+
+  // Appeler la fonction au chargement de la page
+  fetchTasks();
+  async function createTask(taskName) {
+    try {
+      const response = await fetch('/tasks', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: taskName }),
+      });
+      const result = await response.json();
+      console.log('Tâche créée :', result);
+    } catch (error) {
+      console.error('Erreur lors de la création de la tâche :', error);
+    }
+  }
+
+  // Exemple d'utilisation
+  createTask('Nouvelle tâche');
+</script>
+</body>
+</html>
