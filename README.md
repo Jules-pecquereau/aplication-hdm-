@@ -25,3 +25,12 @@ Technologies utilisées
 Frontend : React, CSS
 Backend : Node.js, NestJS, Prisma
 Base de données : MySQL
+
+
+difficulter rencontrer 
+la technologie utiliser que je ne connaiser pas Node.js, NestJS, Prisma ,React
+se fut une grande nouveauté pour moi ce qui a était tres difficile a comprendre et je ne les maitrise toujour pas 
+
+
+choix et décision 
+toute les décision que j'ai prise on était dicter par les tuto que j'ai suivi et les explication d'ia cela aurai était impposible sans 
